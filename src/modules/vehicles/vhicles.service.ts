@@ -8,7 +8,7 @@ interface VehicleData {
   availability_status?: string;
 }
 
-//TODO: create new vehicle ===============================================================================
+//TODO: create new vehicle 
 export const createVehicle = async (data: VehicleData) => {
   const {
     vehicle_name,
@@ -32,7 +32,7 @@ export const createVehicle = async (data: VehicleData) => {
   return result.rows[0];
 };
 
-//TODO: get all vehicle details ============================================================================
+//TODO: get all vehicle details 
 export const getAllVehicles = async () => {
   const result = await query(
     "SELECT id, vehicle_name, type, registration_number, daily_rent_price, availability_status FROM vehicles ORDER BY id"
@@ -53,7 +53,7 @@ export const getVehicleById = async (vehicleId: number) => {
   return result.rows[0];
 };
 
-//TODO: update vehicle data ====================================================================================
+//TODO: update vehicle data
 export const updateVehicle = async (vehicleId: number, data: VehicleData) => {
   const vehicleExists = await query("SELECT id FROM vehicles WHERE id = $1", [
     vehicleId,
@@ -97,7 +97,7 @@ export const updateVehicle = async (vehicleId: number, data: VehicleData) => {
   }
 
   if (updates.length === 0) {
-    //* Return current vehicle data if no updates ===========================
+    //* Return current vehicle data if no updates
     const result = await query(
       "SELECT id, vehicle_name, type, registration_number, daily_rent_price, availability_status FROM vehicles WHERE id = $1",
       [vehicleId]
@@ -117,7 +117,7 @@ export const updateVehicle = async (vehicleId: number, data: VehicleData) => {
   return result.rows[0];
 };
 
-//TODO: delete vehicle and prevent it if it has active booking ==========================================================
+//TODO: delete vehicle and prevent it if it has active booking 
 export const deleteVehicle = async (vehicleId: number) => {
   const vehicleExists = await query("SELECT id FROM vehicles WHERE id = $1", [
     vehicleId,

@@ -2,7 +2,7 @@ import { Response } from "express";
 import { AuthRequest } from "../../middleware/auth";
 import * as userService from "./user.service";
 
-//TODO: get all users data ============================================================================
+//TODO: get all users data
 export const getAllUsers = async (req: AuthRequest, res: Response) => {
   try {
     const users = await userService.getAllUsers();
@@ -21,7 +21,7 @@ export const getAllUsers = async (req: AuthRequest, res: Response) => {
   }
 };
 
-//TODO: update user ====================================================================================
+//TODO: update user
 export const updateUser = async (req: AuthRequest, res: Response) => {
   try {
     const userId = parseInt(req.params.userId as any);
@@ -73,7 +73,7 @@ export const updateUser = async (req: AuthRequest, res: Response) => {
   }
 };
 
-//TODO: delete user data (admin only acess) =====================================================================
+//TODO: delete user data (admin only acess)
 export const deleteUser = async (req: AuthRequest, res: Response) => {
   try {
     const userId = parseInt(req.params.userId as any);

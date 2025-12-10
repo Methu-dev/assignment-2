@@ -7,7 +7,7 @@ interface CreateBookingData {
   rent_end_date: string;
 }
 
-//** Create booking ================================================================ */
+//** Create booking */
 export const createBooking = async (data: CreateBookingData) => {
   const { customer_id, vehicle_id, rent_start_date, rent_end_date } = data;
 
@@ -76,7 +76,7 @@ export const createBooking = async (data: CreateBookingData) => {
   };
 };
 
-//** Get booking records (admin) ================================================= */
+//** Get booking records (admin) */
 export const getAllBookingsAdmin = async () => {
   const result = await query(`
     SELECT 
@@ -92,7 +92,7 @@ export const getAllBookingsAdmin = async () => {
   return result.rows;
 };
 
-//** Get bookings of customer ================================================= */
+//** Get bookings of customer */
 export const getCustomerBookings = async (customerId: number) => {
   const result = await query(
     `
@@ -110,7 +110,7 @@ export const getCustomerBookings = async (customerId: number) => {
   return result.rows;
 };
 
-//** Update booking ================================================================ */
+//** Update booking */
 export const updateBooking = async (
   bookingId: number,
   status: string,

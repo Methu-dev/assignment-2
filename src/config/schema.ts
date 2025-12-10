@@ -2,7 +2,7 @@ import { query } from "./database";
 
 export const initializeDatabase = async () => {
   try {
-    //*===========================Users Table=============================*/
+    //*Users Table*/
     await query(`
       CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
@@ -15,7 +15,7 @@ export const initializeDatabase = async () => {
       );
     `);
 
-    //*===========================Vehicle Table=============================*/
+    //*Vehicle Table*/
     await query(`
       CREATE TABLE IF NOT EXISTS vehicles (
         id SERIAL PRIMARY KEY,
@@ -28,7 +28,7 @@ export const initializeDatabase = async () => {
       );
     `);
 
-    //*===========================Booking Table=============================*/
+    //*Booking Table*/
     await query(`
       CREATE TABLE IF NOT EXISTS bookings (
         id SERIAL PRIMARY KEY,
